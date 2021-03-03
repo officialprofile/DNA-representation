@@ -5,3 +5,8 @@ R library for characterizing biological sequences through Dynamic Representation
 
 1. 2D-dynamic representation of DNA/RNA sequences as a characterization tool of the zika virus genome, MATCH Communications in Mathematical and in Computer Chemistry 77(2):321-332
 2. Dynamic Representations of Biological Sequences, MATCH Communications in Mathematical and in Computer Chemistry 82(1):205-218
+
+In order to install the package run the following code:
+> library(library)
+> install_github("officialprofile/drep")
+> library(drep)
