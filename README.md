@@ -1,4 +1,4 @@
-# dynamicrepresentation
+# drep
 Dynamic Representation of DNA/RNA Sequences
 
 R library for characterizing biological sequences through Dynamic Representation of DNA/RNA Sequences. For technical details please read one of the articles mentioned below.
