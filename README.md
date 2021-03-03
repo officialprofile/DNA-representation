@@ -7,7 +7,7 @@ R library for characterizing biological sequences through Dynamic Representation
 2. Dynamic Representations of Biological Sequences, MATCH Communications in Mathematical and in Computer Chemistry 82(1):205-218
 
 In order to install the package run the following code in the R console:
-> library(library)
+> library(devtools)
 
 > install_github("officialprofile/drep")
 
