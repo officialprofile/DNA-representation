@@ -8,5 +8,7 @@ R library for characterizing biological sequences through Dynamic Representation
 
 In order to install the package run the following code:
 > library(library)
+
 > install_github("officialprofile/drep")
+
 > library(drep)
