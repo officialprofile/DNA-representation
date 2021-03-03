@@ -4,7 +4,7 @@
 \alias{drep}
 \title{2D-DYnamic Representation of the DNA/RNA Sequences}
 \usage{
-drep(seq, type = "DNA")
+drep(seq, type = "sequence", dim = 2)
 }
 \arguments{
 \item{seq}{sequence given as a single string, e.g. "AGTTGAGGGAG"}

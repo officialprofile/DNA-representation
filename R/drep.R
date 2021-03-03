@@ -2,37 +2,36 @@
 #' @param seq sequence given as a single string, e.g. "AGTTGAGGGAG"
 #' @param type DNA or RNA
 
-drep <- function(seq, type = 'DNA'){
-  g=c(1, 0); c=c(0, 1); a=c(-1, 0); t=c(0, -1); u=c(0, -1)
-  seq <- tolower(seq)
-  seq <- str_split(seq, '')
-  if (length(table(seq)) > 4){
-    print('The number of different characters in the sequence is greater than 4. Your sequence is probably incomplete and some errors may occur.')
-  }
-  N=length(seq)
-  xy = matrix(,N,2)
-  v=c(0,0)
+drep <- function(seq, type = 'sequence', dim = 2){
 
-  if(type == 'DNA'){
-    for (i in 1:N){ # Do the walk
-      if (seq[i] == "a") v=v+a
-      if (seq[i] == "c") v=v+c
-      if (seq[i] == "g") v=v+g
-      if (seq[i] == "t") v=v+t
-      xy[i,]=v
-    }
+  # Create vectors
+  elements <- matrix(,3,5)
+  colnames(elements) <- c("A", "C", "G", "T", "U")
+  elements[,"A"] <- c(-1,  0,  1)
+  elements[,"C"] <- c( 0,  1,  1)
+  elements[,"G"] <- c( 1,  0,  1)
+  elements[,"T"] <- c( 0, -1,  1)
+  elements[,"U"] <- c( 0, -1,  1)
+
+  # Prepare the sequence
+  seq <- toupper(seq)
+  seq <- str_split(seq, '')
+  if (length(unique(seq[[1]])) > 4){
+    warning('The number of different characters in the sequence is greater than 4.')
   }
-  if (type== 'RNA'){
-    for (i in 1:N){ # Do the walk
-      if (seq[i] == "a") v=v+a
-      if (seq[i] == "c") v=v+c
-      if (seq[i] == "g") v=v+g
-      if (seq[i] == "u") v=v+u
-      xy[i,]=v
-    }
+
+  # Prepare elements for the walk
+  N <- length(seq[[1]])
+  vec <- rep(0,dim)
+  coordinates <- matrix(vec,1,dim)
+  colnames(coordinates) <- LETTERS[24:(24+dim-1)]
+
+  # Do the walk
+  for (i in 1:N){
+    vec <- vec + elements[1:dim, seq[[1]][i]]
+    coordinates <- rbind(coordinates, vec)
   }
-  #else {
-  #  stop('Incorrect type of string.')
-  #}
-  return (xy)
+  rownames(coordinates) <- seq(1:nrow(coordinates))
+
+  return (coordinates[,LETTERS[24:(24+dim-1)]])
 }
