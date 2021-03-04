@@ -1,11 +1,11 @@
 #' @title Dynamic Representation of the DNA/RNA Sequences
 #' @description Create representation
-#' @usage drep(seq, type = 's', dim = 2)
+#' @usage dwalk(seq, type = 's', dim = 2)
 #' @param seq sequence given as a single string, e.g. "AGTGGG" or as a FASTA type
 #' @param type 's' - raw sequence, 'f' - fasta
 #' @return A matrix of size 2xN or 3xN, where N is the length of the sequence, giving position of every step of the walk.
 
-dRep <- function(seq, type = 's', dim = 2){
+dWalk <- function(seq, type = 's', dim = 2){
   # Basic error handling
   if (!(dim == 2 || dim == 3)){
     stop(' dim must be equal to 2 or 3')
@@ -18,7 +18,13 @@ dRep <- function(seq, type = 's', dim = 2){
   }
 
   # Create vectors
-  elements <- setVectors(c(-1,  0,  1), c( 0,  1,  1), c( 1,  0,  1), c( 0, -1,  1))
+  elements <- matrix(,3,5)
+  colnames(elements) <- c("A", "C", "G", "T", "U")
+  elements[,"A"] <- c(-1,  0,  1)
+  elements[,"C"] <- c( 0,  1,  1)
+  elements[,"G"] <- c( 1,  0,  1)
+  elements[,"T"] <- c( 0, -1,  1)
+  elements[,"U"] <- c( 0, -1,  1)
 
   # Prepare the sequence
   seq <- toupper(seq)
