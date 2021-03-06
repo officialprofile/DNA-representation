@@ -10,7 +10,7 @@ dGraph <- function(seq, dim = 2){
 
   # Prepare the sequence
   seq <- toupper(seq)
-  seq <- str_split(seq, '')
+  seq <- stringr::str_split(seq, '')
   if (length(unique(seq[[1]])) > 4){
     warning(paste('Number of different characters in the sequence is greater than 4.','\nYour sequence may be incomplete'))
   }
