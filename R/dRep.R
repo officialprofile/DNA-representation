@@ -5,9 +5,9 @@
 #' @param type 's' - raw sequence, 'f' - fasta
 #' @return A matrix of size 2xN or 3xN, where N is the length of the sequence, giving position of every step of the walk.
 
-dRep <- function(seq, type = 's', dim = 2){
+dRep <- function(seq, type = 's', dims = 2){
   # Basic error handling
-  if (!(dim == 2 || dim == 3)){
+  if (!(dims == 2 || dims == 3)){
     stop(' dim must be equal to 2 or 3')
   }
   if (!(type == 's' || type == 'f')){
@@ -20,6 +20,6 @@ dRep <- function(seq, type = 's', dim = 2){
   # Create vectors
   elements <- setVectors(c(-1,  0,  1), c( 0,  1,  1), c( 1,  0,  1), c( 0, -1,  1))
 
-  data <- dGraph(seq)
+  data <- dGraph(seq, dim = dims)$graph
   return(print(data))
 }

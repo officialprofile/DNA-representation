@@ -8,6 +8,13 @@ dGraph <- function(seq, dim = 2){
   # Create vectors
   elements <- setVectors(c(-1,  0,  1), c( 0,  1,  1), c( 1,  0,  1), c( 0, -1,  1))
 
+  # Prepare the sequence
+  seq <- toupper(seq)
+  seq <- str_split(seq, '')
+  if (length(unique(seq[[1]])) > 4){
+    warning(paste('Number of different characters in the sequence is greater than 4.','\nYour sequence may be incomplete'))
+  }
+
   # Prepare elements for the walk
   N <- length(seq[[1]])
   vec <- rep(0, dim)
@@ -20,17 +27,10 @@ dGraph <- function(seq, dim = 2){
     coordinates <- rbind(coordinates, vec)
   }
   rownames(coordinates) <- seq(1:nrow(coordinates))
+  coordinates <- as.data.frame(coordinates)
 
-  x <- coordinates[,LETTERS[24:(24 + dim - 1)]]
-  mass <- rep(0, nrow(x))
-  for (i in 1:nrow(x)){
-    for (j in 1:nrow(x)){
-      if (sum(x[i,] == x[j,]) == length(x[1,])){
-        mass[i] = mass[i] + 1
-      }
-    }
-  }
-  x <- cbind(x[,1:dim], mass)
+  dataWithMass <- plyr::count(coordinates)
+  colnames(dataWithMass[dim+1]) <- 'mass'
 
-  return(unique(x))
+  return(list('coordinates' = coordinates, 'graph' = dataWithMass))
 }
