@@ -8,5 +8,5 @@ Description: Characterize biological sequences through 2D nad 3D-Dynamic represe
 License: 
 Encoding: UTF-8
 LazyData: false
-Imports: stringr
+Imports: stringr, plyr
 RoxygenNote: 7.1.1
