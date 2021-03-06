@@ -7,13 +7,7 @@
 setVectors <- function(A, C, G, TU){
   lengths <- c()
   for (vec in c(A, C, G, TU)){
-    if (typeof(vec) != 'double' || length(vec)<2 || length(vec)>3){
-        stop('Incorrect vector')
-    }
     lengths <- c(lengths, length(vec))
-  }
-  if (min(lengths) != max(lengths)){
-    stop('Lengths of the vectors are not equal')
   }
   if (lengths[1] == 2){
     for (vec in c(A, C, G, TU)){
