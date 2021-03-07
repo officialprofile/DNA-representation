@@ -30,7 +30,6 @@ dGraph <- function(seq, dim = 2){
   coordinates <- as.data.frame(coordinates)
 
   dataWithMass <- plyr::count(coordinates)
-  colnames(dataWithMass[dim+1]) <- 'mass'
 
   return(list('coordinates' = coordinates, 'graph' = dataWithMass))
 }
