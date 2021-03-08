@@ -11,9 +11,9 @@ dGraph(seq, dim = 2)
 
 \item{dim}{- number of dimensions: 2 (default) or 3}
 
-\item{vec}{- list of unit vectors associated with nucleobases}
+\item{genbank}{FALSE (default) - raw sequence, TRUE - accession number from GenBank}
 
-\item{type}{'s' - raw sequence, 'f' - fasta}
+\item{vec}{- list of unit vectors associated with nucleobases}
 }
 \value{
 A list containing two matrices: 'coordinates' and 'graph'

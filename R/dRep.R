@@ -2,27 +2,21 @@
 #' @description dRep reates characterization of the dynamic graph that is built by dGraph function. The characterization can be used in an alignment-free analysis of the DNA/RNA sequences.
 #' @usage drep(seq, type = 's', dim = 2)
 #' @param seq sequence given as a single string, e.g. "AGTGGG" or as a FASTA file
-#' @param type 's' - raw sequence (default), 'f' - fasta
+#' @param genbank FALSE (default) - raw sequence, TRUE - accession number from GenBank
 #' @param dim number of dimensions: 2 (default) or 3
 #' @param vec list of unit vectors associated with nucleobases
 #' @return Dataframe with one row and 14 columns (dim = 2) or 26 columns (dim = 3) with descriptors
 #' @example dRep('ACGCATGCGGCGAGTG', dim = 2)
 
-dRep <- function(seq, type = 's', dim = 2,
+dRep <- function(seq, dim = 2, genbank = FALSE,
                  vec = list('A' = c(-1, 0, 1), 'C' = c(0, 1, 1), 'G' = c(1, 0, 1), 'T' = c(0, -1, 1))){
   # Basic error handling
   if (!(dim == 2 || dim == 3)){
     stop(' dim must be equal to 2 or 3')
   }
-  if (!(type == 's' || type == 'f')){
-    stop(' type must be equal to "s" or "f"')
-  }
-  if (type == 's' && (typeof(seq) != 'character' || length(seq) > 1)){
-    stop(' incorrect sequence')
-  }
 
   # Create Dynamic Graph
-  graph <- dGraph(seq, dim = dim, vec = vec)$coordinates
+  graph <- dGraph(seq, genbank = genbank, dim = dim, vec = vec)$coordinates
 
   # Characterize Dynamic Graph
   if (dim == 2){

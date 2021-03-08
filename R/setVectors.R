@@ -9,7 +9,7 @@ setVectors <- function(vec){
   for (v in names(vec)){
     lengths <- c(lengths, length(vec[v][[1]]))
   }
-  if (min(lenghts) != max(lengths)){
+  if (min(lengths) != max(lengths)){
     stop('Number of dimensions must be the same for every nucleobase.')
   }
 

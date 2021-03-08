@@ -9,9 +9,9 @@ drep(seq, type = 's', dim = 2)
 \arguments{
 \item{seq}{sequence given as a single string, e.g. "AGTGGG" or as a FASTA file}
 
-\item{type}{'s' - raw sequence (default), 'f' - fasta}
-
 \item{dim}{number of dimensions: 2 (default) or 3}
+
+\item{genbank}{FALSE (default) - raw sequence, TRUE - accession number from GenBank}
 
 \item{vec}{list of unit vectors associated with nucleobases}
 }

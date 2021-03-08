@@ -2,33 +2,32 @@
 #' @description Create representation
 #' @usage dGraph(seq, dim = 2)
 #' @param seq sequence given as a single string, e.g. "AGTGGG" or as a FASTA type
-#' @param type 's' - raw sequence, 'f' - fasta
+#' @param genbank FALSE (default) - raw sequence, TRUE - accession number from GenBank
 #' @param dim - number of dimensions: 2 (default) or 3
 #' @param vec - list of unit vectors associated with nucleobases
 #' @return A list containing two matrices: 'coordinates' and 'graph'
 
-dGraph <- function(seq, dim = 2,
+dGraph <- function(seq, dim = 2, genbank = FALSE,
                    vec = list('A' = c(-1, 0, 1), 'C' = c(0, 1, 1), 'G' = c(1, 0, 1), 'T' = c(0, -1, 1))){
   # Create vectors
   elements <- setVectors(vec = vec)
 
   # Prepare the sequence
-  seq <- toupper(seq)
-  seq <- stringr::str_split(seq, '')
-  if (length(unique(seq[[1]])) > 4){
-    warning(paste('Number of different characters in the sequence is greater than 4.','\nYour sequence may be incomplete'))
-  }
+  if (genbank == FALSE) seq <- stringr::str_split(seq, '')
+  if (genbank == TRUE) seq <- ape::read.GenBank(seq, species.names = TRUE, as.character = TRUE)
+  seq <- toupper(seq[[1]])
 
   # Prepare elements for the walk
-  N <- length(seq[[1]])
-  vec <- rep(0, dim)
+  N <- length(seq)
+  pos <- rep(0, dim) # Position
   coordinates <- matrix(, 0, dim)
   colnames(coordinates) <- LETTERS[24:(24+dim-1)]
 
   # Do the walk
   for (i in 1:N){
-    vec <- vec + elements[1:dim, seq[[1]][i]]
-    coordinates <- rbind(coordinates, vec)
+    if (length(intersect(seq[i], c('A', 'C', 'G', 'T', 'U'))))
+    pos <- pos + elements[1:dim, seq[i]]
+    coordinates <- rbind(coordinates, pos)
   }
   rownames(coordinates) <- seq(1:nrow(coordinates))
   coordinates <- as.data.frame(coordinates)
