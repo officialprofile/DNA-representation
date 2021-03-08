@@ -1,8 +1,8 @@
 Package: drep
 Type: Package
 Title: Dynamic Representation of DNA/RNA Sequences
-Version: 0.1.0
-Author: Who wrote it
+Version: 0.5.0
+Author: Damian Panas
 Maintainer: Damian Panas <damian@panas.pl>
 Description: Characterize biological sequences through 2D nad 3D-Dynamic representation of DNA/RNA Sequences
 License: 

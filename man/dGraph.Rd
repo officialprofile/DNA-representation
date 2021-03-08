@@ -9,10 +9,14 @@ dGraph(seq, dim = 2)
 \arguments{
 \item{seq}{sequence given as a single string, e.g. "AGTGGG" or as a FASTA type}
 
+\item{dim}{- number of dimensions: 2 (default) or 3}
+
+\item{vec}{- list of unit vectors associated with nucleobases}
+
 \item{type}{'s' - raw sequence, 'f' - fasta}
 }
 \value{
-A matrix of size Nx(dim+1) where N is the number of unique positions on the graph
+A list containing two matrices: 'coordinates' and 'graph'
 }
 \description{
 Create representation

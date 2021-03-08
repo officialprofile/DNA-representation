@@ -7,13 +7,17 @@
 drep(seq, type = 's', dim = 2)
 }
 \arguments{
-\item{seq}{sequence given as a single string, e.g. "AGTGGG" or as a FASTA type}
+\item{seq}{sequence given as a single string, e.g. "AGTGGG" or as a FASTA file}
 
-\item{type}{'s' - raw sequence, 'f' - fasta}
+\item{type}{'s' - raw sequence (default), 'f' - fasta}
+
+\item{dim}{number of dimensions: 2 (default) or 3}
+
+\item{vec}{list of unit vectors associated with nucleobases}
 }
 \value{
-A matrix of size 2xN or 3xN, where N is the length of the sequence, giving position of every step of the walk.
+Dataframe with one row and 14 columns (dim = 2) or 26 columns (dim = 3) with descriptors
 }
 \description{
-Create representation
+dRep reates characterization of the dynamic graph that is built by dGraph function. The characterization can be used in an alignment-free analysis of the DNA/RNA sequences.
 }

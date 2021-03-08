@@ -1,11 +1,15 @@
 #' @title Dynamic Representation of the DNA/RNA Sequences
-#' @description Create representation
+#' @description dRep reates characterization of the dynamic graph that is built by dGraph function. The characterization can be used in an alignment-free analysis of the DNA/RNA sequences.
 #' @usage drep(seq, type = 's', dim = 2)
-#' @param seq sequence given as a single string, e.g. "AGTGGG" or as a FASTA type
-#' @param type 's' - raw sequence, 'f' - fasta
-#' @return A matrix of size 2xN or 3xN, where N is the length of the sequence, giving position of every step of the walk.
+#' @param seq sequence given as a single string, e.g. "AGTGGG" or as a FASTA file
+#' @param type 's' - raw sequence (default), 'f' - fasta
+#' @param dim number of dimensions: 2 (default) or 3
+#' @param vec list of unit vectors associated with nucleobases
+#' @return Dataframe with one row and 14 columns (dim = 2) or 26 columns (dim = 3) with descriptors
+#' @example dRep('ACGCATGCGGCGAGTG', dim = 2)
 
-dRep <- function(seq, type = 's', dim = 2){
+dRep <- function(seq, type = 's', dim = 2,
+                 vec = list('A' = c(-1, 0, 1), 'C' = c(0, 1, 1), 'G' = c(1, 0, 1), 'T' = c(0, -1, 1))){
   # Basic error handling
   if (!(dim == 2 || dim == 3)){
     stop(' dim must be equal to 2 or 3')
@@ -17,10 +21,8 @@ dRep <- function(seq, type = 's', dim = 2){
     stop(' incorrect sequence')
   }
 
-  # Create vectors
-  elements <- setVectors(c(-1,  0,  1), c( 0,  1,  1), c( 1,  0,  1), c( 0, -1,  1))
-
-  graph <- dGraph(seq, dim = dim)$coordinates
+  # Create Dynamic Graph
+  graph <- dGraph(seq, dim = dim, vec = vec)$coordinates
 
   # Characterize Dynamic Graph
   if (dim == 2){

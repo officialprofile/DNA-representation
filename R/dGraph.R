@@ -3,10 +3,14 @@
 #' @usage dGraph(seq, dim = 2)
 #' @param seq sequence given as a single string, e.g. "AGTGGG" or as a FASTA type
 #' @param type 's' - raw sequence, 'f' - fasta
-#' @return A matrix of size Nx(dim+1) where N is the number of unique positions on the graph
-dGraph <- function(seq, dim = 2){
+#' @param dim - number of dimensions: 2 (default) or 3
+#' @param vec - list of unit vectors associated with nucleobases
+#' @return A list containing two matrices: 'coordinates' and 'graph'
+
+dGraph <- function(seq, dim = 2,
+                   vec = list('A' = c(-1, 0, 1), 'C' = c(0, 1, 1), 'G' = c(1, 0, 1), 'T' = c(0, -1, 1))){
   # Create vectors
-  elements <- setVectors(c(-1,  0,  1), c( 0,  1,  1), c( 1,  0,  1), c( 0, -1,  1))
+  elements <- setVectors(vec = vec)
 
   # Prepare the sequence
   seq <- toupper(seq)

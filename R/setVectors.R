@@ -1,27 +1,33 @@
-#' @description Create representation
-#' @usage dwalk(seq, type = 's', dim = 2)
-#' @param seq sequence given as a single string, e.g. "AGTGGG" or as a FASTA type
-#' @param type 's' - raw sequence, 'f' - fasta
-#' @return A matrix of size 2xN or 3xN, where N is the length of the sequence, giving position of every step of the walk.
+#' @description Set vectors
+#' @usage setVectors(vec)
+#' @param vec list containing coordinates of the unit vectors
+#' @return A matrix of size 3x5 (regardless of dimensionality)
 
-setVectors <- function(A, C, G, TU){
+setVectors <- function(vec){
+  # Error handling
   lengths <- c()
-  for (vec in c(A, C, G, TU)){
-    lengths <- c(lengths, length(vec))
+  for (v in names(vec)){
+    lengths <- c(lengths, length(vec[v][[1]]))
   }
+  if (min(lenghts) != max(lengths)){
+    stop('Number of dimensions must be the same for every nucleobase.')
+  }
+
+  # Add third dimension for two dimensional case
   if (lengths[1] == 2){
-    for (vec in c(A, C, G, TU)){
-      A <- c(A, 1)
+    for (v in names(vec)){
+      vec[v][[1]] <- c(vec[v][[1]], 1)
     }
   }
 
   elements <- matrix(,3,5)
-  colnames(elements) <- c("A", "C", "G", "T", "U")
-  elements[,"A"] <- A
-  elements[,"C"] <- C
-  elements[,"G"] <- G
-  elements[,"T"] <- TU
-  elements[,"U"] <- TU
+  colnames(elements) <- c('A', 'C', 'G', 'T', 'U')
+  rownames(elements) <- c('X', 'Y', 'Z')
+  elements[, 'A'] <- vec['A'][[1]]
+  elements[, 'C'] <- vec['C'][[1]]
+  elements[, 'G'] <- vec['G'][[1]]
+  elements[, 'T'] <- vec['T'][[1]]
+  elements[, 'U'] <- vec['T'][[1]]
 
   if (lengths[1] == 2){
     return (elements[1:2, ])
@@ -29,5 +35,4 @@ setVectors <- function(A, C, G, TU){
   else {
     return (elements)
   }
-
 }
