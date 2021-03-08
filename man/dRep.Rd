@@ -4,20 +4,21 @@
 \alias{dRep}
 \title{Dynamic Representation of the DNA/RNA Sequences}
 \usage{
-drep(seq, type = 's', dim = 2)
+dRep(seqs, dim = 2, genbank = FALSE, vec = list('A' = c(-1, 0, 1),
+'C' = c(0, 1, 1), 'G' = c(1, 0, 1), 'T' = c(0, -1, 1)))
 }
 \arguments{
-\item{seq}{sequence given as a single string, e.g. "AGTGGG" or as a FASTA file}
+\item{seqs}{vector of sequences given as strings or GenBank accession numbers}
 
 \item{dim}{number of dimensions: 2 (default) or 3}
 
-\item{genbank}{FALSE (default) - raw sequence, TRUE - accession number from GenBank}
+\item{genbank}{FALSE (default) - sequence, TRUE - accession number from GenBank}
 
 \item{vec}{list of unit vectors associated with nucleobases}
 }
 \value{
-Dataframe with one row and 14 columns (dim = 2) or 26 columns (dim = 3) with descriptors
+Dataframe with N row and 14 columns (dim = 2) or 26 columns (dim = 3), where each row represents one of N given sequences
 }
 \description{
-dRep reates characterization of the dynamic graph that is built by dGraph function. The characterization can be used in an alignment-free analysis of the DNA/RNA sequences.
+dRep creates characterization of the 2D- or 3D-Dynamic Graph. The characterization can be used in an alignment-free analysis of the DNA/RNA sequences.
 }

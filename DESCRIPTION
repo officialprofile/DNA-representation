@@ -4,9 +4,9 @@ Title: Dynamic Representation of DNA/RNA Sequences
 Version: 0.6.8
 Author: Damian Panas
 Maintainer: Damian Panas <damian@panas.pl>
-Description: Characterize biological sequences through 2D nad 3D-Dynamic representation of DNA/RNA Sequences
+Description: Characterize biological sequences through 2D or 3D-Dynamic representation of DNA/RNA Sequences
 License: 
 Encoding: UTF-8
-LazyData: false
+LazyData: 
 Imports: stringr, plyr, ape
 RoxygenNote: 7.1.1
