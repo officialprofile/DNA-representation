@@ -6,7 +6,7 @@
 plot2DGraph <- function(seq, dim = 2, genbank = FALSE, xlab = 'X', ylab = 'Y', main = ''){
   graph <- as.data.frame(dGraph(seq = seq, dim = dim, genbank = genbank)$graph)
 
-  ggplot2::options(scipen = 999)  # Turning-off scientific notation like 1e+48
+  options(scipen = 999)  # Turning-off scientific notation like 1e+48
   ggplot2::theme_set(theme_classic())
 
   gg <- ggplot(graph, aes(x = X, y = Y)) + geom_point(aes(col = freq)) +
