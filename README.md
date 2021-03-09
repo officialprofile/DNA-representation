@@ -25,13 +25,13 @@ returns a ready-to-use dynamic graph of the ZIKV genome
 
 <img src="img/example1.png" width="50%" />
 
-Notice that it can be achieved solely by putting the GenBank accession number. It is possible though, that plot2DGraph may return an error. Loading ggplot2 library separately should solve this problem.
+Notice that it can be achieved solely by putting the GenBank accession number. It is possible though, that plot2DGraph may return an error. Loading ggplot2 library separately should solve the problem. This issue will be resolved in the near future.
 
 In similar fashion one can obtain numerical characteristics by employing dRep function, e.g.
 ```r
 dRep(c('KX369547', 'HQ234498'), genbank = TRUE)
 ```
-returns the following dataframe:
+returns the following dataframe
 |         |len  |mi_x  |mi_y   |sqrt   | I_xx    | I_yy    |  I_xy    |...
 |---------|-----|------|-------|-------|---------|---------|----------|---
 |KX369547 |10769|84.660|-16.061| 86.170| 11371982| 60032538|-17116036 |...
@@ -40,5 +40,5 @@ returns the following dataframe:
 Naturally, instead of using data from GenBank, one can apply Dynamic Representation to one's own sequence or vector of sequences, e.g.
 ```r
 seq <- 'ACCCTCGCGCCGCGATTCTACGGACCCTGAAAATG'
-dRep(seq, genbank = TRUE)
+dRep(seq)
 ```
