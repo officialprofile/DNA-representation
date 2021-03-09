@@ -2,7 +2,7 @@
 % Please edit documentation in R/dRep.R
 \name{dRep}
 \alias{dRep}
-\title{Dynamic Representation of the DNA/RNA Sequences}
+\title{Representation of the DNA/RNA Sequences}
 \usage{
 dRep(seqs, dim = 2, genbank = FALSE, vec = list('A' = c(-1, 0, 1),
 'C' = c(0, 1, 1), 'G' = c(1, 0, 1), 'T' = c(0, -1, 1)))

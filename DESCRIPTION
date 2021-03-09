@@ -1,12 +1,12 @@
 Package: drep
 Type: Package
-Title: Dynamic Representation of DNA/RNA Sequences
-Version: 0.9.5
+Title: Alignment-free characterization of the DNA Sequences
+Version: 0.9.6
 Author: Damian Panas
 Maintainer: Damian Panas <dpanas@gumed.edu.pl>
-Description: Characterize biological sequences through 2D or 3D-Dynamic representation of DNA/RNA Sequences
+Description: Characterize biological sequences
 License: 
 Encoding: UTF-8
 LazyData: 
-Imports: stringr, plyr, ape, ggplot2
+Imports: stringr, plyr, ape
 RoxygenNote: 7.1.1
