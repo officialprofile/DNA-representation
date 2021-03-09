@@ -22,6 +22,7 @@ In most cases a single line of code can yield satisfactory results. For example:
 plot2DGraph('KX369547', genbank = TRUE)
 ```
 returns a ready-to-use dynamic graph of the ZIKV genome
+
 <img src="img/example1.png" width="50%" />
 
 In similar fashion one can obtain numerical characteristics by employing dRep function, i.e.
