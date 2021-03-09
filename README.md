@@ -27,7 +27,7 @@ returns a ready-to-use dynamic graph of the ZIKV genome
 
 In similar fashion one can obtain numerical characteristics by employing dRep function, i.e.
 ```r
-dRep(c('KX369547',HQ234498), genbank = TRUE)
+dRep(c('KX369547', 'HQ234498'), genbank = TRUE)
 ```
 returns the following dataframe
 |         |len  |mi_x  |mi_y   |sqrt   | I_xx    | I_yy    |  I_xy    |...
