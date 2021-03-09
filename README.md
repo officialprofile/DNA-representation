@@ -7,7 +7,7 @@ R library for characterizing biological sequences through Dynamic Representation
 2. Dynamic Representations of Biological Sequences, MATCH Communications in Mathematical and in Computer Chemistry 82(1):205-218
 
 ## Install
-In order to install and load the package run the following code in the R console:
+In order to install and load the package run the following code in the R console
 
 ```r
 library(devtools)
@@ -16,14 +16,16 @@ library(drep)
 ```
 
 ## How to use it
-In most cases a single line of code can yield satisfactory results. For example:
+In most cases a single line of code can yield satisfactory results. For example
 
 ```r
 plot2DGraph('KX369547', genbank = TRUE)
 ```
-returns a ready-to-use dynamic graph of the ZIKV genome (based solely on the GenBank accession number):
+returns a ready-to-use dynamic graph of the ZIKV genome
 
 <img src="img/example1.png" width="50%" />
+
+Notice that it can be achieved solely by putting the GenBank accession number. It is possible though, that plot2DGraph may return an error. Loading ggplot2 library separately should solve this problem.
 
 In similar fashion one can obtain numerical characteristics by employing dRep function, e.g.
 ```r
@@ -34,3 +36,9 @@ returns the following dataframe:
 |---------|-----|------|-------|-------|---------|---------|----------|---
 |KX369547 |10769|84.660|-16.061| 86.170| 11371982| 60032538|-17116036 |...
 |HQ234498 |10269|75.171|-17.691| 77.224|  5137647| 31072416|  -1928373|...
+
+Naturally, instead of using data from GenBank, one can apply Dynamic Representation to one's own sequence or vector of sequences, e.g.
+```r
+seq <- 'ACCCTCGCGCCGCGATTCTACGGACCCTGAAAATG'
+dRep(seq, genbank = TRUE)
+```
