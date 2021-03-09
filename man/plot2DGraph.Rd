@@ -4,16 +4,11 @@
 \alias{plot2DGraph}
 \title{Plot 2D-Dynamic Graph}
 \usage{
-plot2DGraph(seq, type = 's', dim = 2)
-}
-\arguments{
-\item{seq}{sequence given as a single string, e.g. "AGTGGG" or as a FASTA type}
-
-\item{type}{'s' - symbolic, 'wb' - grayscale, 'c' - colors}
+plot2DGraph(seq, dim = 2, genbank = FALSE)
 }
 \value{
 
 }
 \description{
-Create plot
+Creates scatter plot
 }

@@ -25,9 +25,10 @@ dGraph <- function(seq, dim = 2, genbank = FALSE,
 
   # Do the walk
   for (i in 1:N){
-    if (length(intersect(seq[i], c('A', 'C', 'G', 'T', 'U'))))
-    pos <- pos + elements[1:dim, seq[i]]
-    coordinates <- rbind(coordinates, pos)
+    if (length(intersect(seq[i], c('A', 'C', 'G', 'T', 'U')))){
+      pos <- pos + elements[1:dim, seq[i]]
+      coordinates <- rbind(coordinates, pos)
+    }
   }
   rownames(coordinates) <- seq(1:nrow(coordinates))
   coordinates <- as.data.frame(coordinates)
