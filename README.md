@@ -1,17 +1,15 @@
-# drep
-Graphical and Numerical Representation of DNA/RNA Sequences
+# GNR-DNA
+Graphical and Numerical Representation of DNA Sequences
 
-R library for characterizing biological sequences graphically and numerically. For technical details please read one of the articles mentioned below.
-
-1. 2D-dynamic representation of DNA/RNA sequences as a characterization tool of the zika virus genome, MATCH Communications in Mathematical and in Computer Chemistry 77(2):321-332
-2. Dynamic Representations of Biological Sequences, MATCH Communications in Mathematical and in Computer Chemistry 82(1):205-218
+R library for characterizing biological sequences graphically and numerically. If you would like to get the gist of implemented approach please the following article 
+> A new graphical representation and analysis of DNA sequence structure: 1. Methodology and application to globin genes, Curr Sci 66:309-314
 
 ## Install
 In order to install and load the package run the following code in the R console
 
 ```r
 library(devtools)
-install_github('officialprofile/drep')
+install_github('officialprofile/GNR-DNA')
 library(drep)
 ```
 
@@ -23,13 +21,13 @@ plot2DGraph(c('KX369547', 'HQ234498'), genbank = TRUE, main = 'Comparison of two
 ```
 returns a ready-to-use graph of the ZIKV genomes
 
-<img src="img/example1.png" width="40%" />
+<img src="img/example1.png" width="50%" />
 
 ```r
 plot2DGraph(c('KX369547', 'HQ234498', 'MH063265'), genbank = TRUE, main = 'Comparison of three sequences')
 ```
 
-<img src="img/example2.png" width="40%" />
+<img src="img/example2.png" width="50%" />
 
 Notice that plotting such graphs can be achieved solely by putting the GenBank accession number.
 
