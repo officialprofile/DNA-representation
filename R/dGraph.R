@@ -1,5 +1,5 @@
-#' @title Dynamic Graph
-#' @description Create representation
+#' @title Graphical Representation
+#' @description Create graphical representation
 #' @usage dGraph(seq, dim = 2)
 #' @param seq sequence given as a single string, e.g. "AGTGGG" or as a FASTA type
 #' @param genbank FALSE (default) - raw sequence, TRUE - accession number from GenBank

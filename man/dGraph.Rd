@@ -2,7 +2,7 @@
 % Please edit documentation in R/dGraph.R
 \name{dGraph}
 \alias{dGraph}
-\title{Dynamic Graph}
+\title{Graphical Representation}
 \usage{
 dGraph(seq, dim = 2)
 }
@@ -19,5 +19,5 @@ dGraph(seq, dim = 2)
 A list containing two matrices: 'coordinates' and 'graph'
 }
 \description{
-Create representation
+Create graphical representation
 }

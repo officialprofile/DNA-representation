@@ -2,7 +2,7 @@
 % Please edit documentation in R/dRep.R
 \name{dRep}
 \alias{dRep}
-\title{Representation of the DNA/RNA Sequences}
+\title{Numerical Representation of DNA Sequences}
 \usage{
 dRep(seqs, dim = 2, genbank = FALSE, vec = list('A' = c(-1, 0, 1),
 'C' = c(0, 1, 1), 'G' = c(1, 0, 1), 'T' = c(0, -1, 1)))
@@ -20,5 +20,5 @@ dRep(seqs, dim = 2, genbank = FALSE, vec = list('A' = c(-1, 0, 1),
 Dataframe with N row and 14 columns (dim = 2) or 26 columns (dim = 3), where each row represents one of N given sequences
 }
 \description{
-dRep creates characterization of the 2D- or 3D-Dynamic Graph. The characterization can be used in an alignment-free analysis of the DNA/RNA sequences.
+Numerical Representation of DNA Sequences
 }

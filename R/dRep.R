@@ -1,5 +1,4 @@
-#' @title Representation of the DNA/RNA Sequences
-#' @description dRep creates characterization of the 2D- or 3D-Dynamic Graph. The characterization can be used in an alignment-free analysis of the DNA/RNA sequences.
+#' @title Numerical Representation of DNA Sequences
 #' @usage dRep(seqs, dim = 2, genbank = FALSE, vec = list('A' = c(-1, 0, 1),
 #' 'C' = c(0, 1, 1), 'G' = c(1, 0, 1), 'T' = c(0, -1, 1)))
 #' @param seqs vector of sequences given as strings or GenBank accession numbers
@@ -27,9 +26,9 @@ dRep <- function(seqs, dim = 2, genbank = FALSE,
   }
 
   for (seq in seqs){
-    graph <- dGraph(seq, genbank = genbank, dim = dim, vec = vec)$coordinates # Create Dynamic Graph
+    graph <- dGraph(seq, genbank = genbank, dim = dim, vec = vec)$coordinates
     data <- list()
-    # Characterize Dynamic Graph
+
     if (dim == 2){
       data$len <- nrow(graph)
       data$mi_x <- sum(graph[, 'X']) / length(graph[, 'X'])
@@ -53,7 +52,7 @@ dRep <- function(seqs, dim = 2, genbank = FALSE,
       data$I_11 <- eigen(char_mi)$values[1] # Principal moments of inertia
       data$I_22 <- eigen(char_mi)$values[2]
 
-      data$Dx1 <- data$mi_x / data$I_11 # Descriptors
+      data$Dx1 <- data$mi_x / data$I_11
       data$Dy1 <- data$mi_y / data$I_11
       data$Dx2 <- data$mi_x / data$I_22
       data$Dy2 <- data$mi_y / data$I_22
@@ -96,7 +95,7 @@ dRep <- function(seqs, dim = 2, genbank = FALSE,
       data$I_22 <- eigen(char_mi)$values[2]
       data$I_33 <- eigen(char_mi)$values[3]
 
-      data$Dx1 <- data$mi_x / data$I_11 # Descriptors
+      data$Dx1 <- data$mi_x / data$I_11
       data$Dy1 <- data$mi_y / data$I_11
       data$Dz1 <- data$mi_z / data$I_11
       data$Dx2 <- data$mi_x / data$I_22
