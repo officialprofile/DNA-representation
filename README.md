@@ -2,7 +2,7 @@
 Graphical and Numerical Representation of DNA Sequences
 
 R library for characterizing biological sequences graphically and numerically. If you would like to get the gist of implemented approach please read the following article 
-> A new graphical representation and analysis of DNA sequence structure: 1. Methodology and application to globin genes, Curr Sci 66:309-314
+> Bo Liao, Kequan Ding, *A 3D graphical representation of DNA sequences and its application*. Volume 358, Issue 1, 2006, Pages 56-64.
 
 ## Install
 In order to install and load the package run the following code in the R console
@@ -29,17 +29,17 @@ plot2DGraph(c('KX369547', 'HQ234498', 'MH063265'), genbank = TRUE, main = 'Compa
 
 <img src="img/example2.png" width="50%" />
 
-Notice that plotting such graphs can be achieved solely by putting the GenBank accession number.
+Notice that plotting such graphs can be achieved solely by putting the GenBank accession numbers.
 
 In similar fashion one can obtain numerical characteristics by employing dRep function, e.g.
 ```r
 dRep(c('KX369547', 'HQ234498'), genbank = TRUE)
 ```
 returns the following dataframe
-|         |len  |mi_x  |mi_y   |sqrt   | I_xx    | I_yy    |  I_xy    |...
-|---------|-----|------|-------|-------|---------|---------|----------|---
-|KX369547 |10769|84.660|-16.061| 86.170| 11371982| 60032538|-17116036 |...
-|HQ234498 |10269|75.171|-17.691| 77.224|  5137647| 31072416|  -1928373|...
+|         |len  |mi_x  |mi_y   |sqrt   |...
+|---------|-----|------|-------|-------|---
+|KX369547 |10769|84.660|-16.061| 86.170|...
+|HQ234498 |10269|75.171|-17.691| 77.224|...
 
 Naturally, instead of using data from GenBank, one can apply implemented method to one's own sequence or vector of sequences, e.g.
 ```r
