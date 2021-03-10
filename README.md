@@ -1,7 +1,7 @@
-# GNR-DNA
+## GNR-DNA
 Graphical and Numerical Representation of DNA Sequences
 
-R library for characterizing biological sequences graphically and numerically. If you would like to get the gist of implemented approach please the following article 
+R library for characterizing biological sequences graphically and numerically. If you would like to get the gist of implemented approach please read the following article 
 > A new graphical representation and analysis of DNA sequence structure: 1. Methodology and application to globin genes, Curr Sci 66:309-314
 
 ## Install
