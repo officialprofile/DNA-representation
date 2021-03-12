@@ -17,19 +17,22 @@ library(drep)
 In most cases a single line of code can yield satisfactory results. For example
 
 ```r
-plot2DGraph(c('KX369547', 'HQ234498'), genbank = TRUE, main = 'Comparison of two sequences')
+plot2DGraph(c('KX369547', 'HQ234498', 'MH063265'), genbank = TRUE, main = 'Comparison of three sequences')
 ```
 returns a ready-to-use graph of the ZIKV genomes
 
-<img src="img/example1.png" width="50%" />
+<img src="img/example1.png" width="500px" />
 
 ```r
-plot2DGraph(c('KX369547', 'HQ234498', 'MH063265'), genbank = TRUE, main = 'Comparison of three sequences')
+plot2DGraph(c('DQ415340','AF509109'), genbank = TRUE, 
+            legend.pos = 'bottomright', 
+            colorset = c('lightblue', 'orange'),
+            main = 'Two influenza A type NA genes (H1N1 and H5N1)')
 ```
 
-<img src="img/example2.png" width="50%" />
+<img src="img/example2.png" width="500px" />
 
-Notice that plotting such graphs can be achieved solely by putting the GenBank accession numbers.
+Notice that plotting such graphs can be achieved solely by putting the GenBank accession numbers. plot2DGraph is intended to be quite versatile though, i.e. many parameters can be adjusted.
 
 In similar fashion one can obtain numerical characteristics by employing dRep function, e.g.
 ```r
