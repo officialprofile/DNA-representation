@@ -3,10 +3,10 @@ Type: Package
 Title: Alignment-free characterization of the DNA Sequences
 Version: 0.9.6
 Author: Damian Panas
-Maintainer: Damian Panas <dpanas@gumed.edu.pl>
+Maintainer: Damian Panas <damian@panas.com>
 Description: Characterize biological sequences
 License: 
 Encoding: UTF-8
 LazyData: 
-Imports: stringr, plyr, ape
+Imports: stringr, plyr, ape, rgl, magic
 RoxygenNote: 7.1.1
