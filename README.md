@@ -23,6 +23,15 @@ returns a ready-to-use graph of the ZIKV genomes
 
 <img src="img/example1.png" width="500px" />
 
+For three-dimensional representation one can use plot3DGraph. The function is based on rgl library.
+
+```r
+plot3DGraph(c('DQ415340','AF509109'), genbank = TRUE, radius = 10)
+```
+
+<img src="img/example3.png" width="500px" />
+
+
 ```r
 plot2DGraph(c('DQ415340','AF509109'), genbank = TRUE, 
             legend.pos = 'bottomright', 
@@ -32,7 +41,7 @@ plot2DGraph(c('DQ415340','AF509109'), genbank = TRUE,
 
 <img src="img/example2.png" width="500px" />
 
-Notice that plotting such graphs can be achieved solely by putting the GenBank accession numbers. plot2DGraph is intended to be quite versatile though, i.e. many parameters can be adjusted.
+Notice that plotting such graphs can be achieved solely by putting the GenBank accession numbers. plot2DGraph as well as plot3DGraph are intended to be quite versatile though.
 
 In similar fashion one can obtain numerical characteristics by employing dRep function, e.g.
 ```r
