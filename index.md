@@ -1,37 +1,60 @@
-## Welcome to GitHub Pages
+## GNR-DNA
+Graphical and Numerical Representation of DNA Sequences
 
-You can use the [editor on GitHub](https://github.com/officialprofile/GNR-DNA/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+R library for characterizing biological sequences graphically and numerically. If you would like to get the gist of implemented approach please read the following article 
+> Bo Liao, Kequan Ding, *A 3D graphical representation of DNA sequences and its application*. Volume 358, Issue 1, 2006, Pages 56-64.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Install
+In order to install and load the package run the following code in the R console
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```r
+library(devtools)
+install_github('officialprofile/GNR-DNA')
+library(drep)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## How to use it
+In most cases a single line of code can yield satisfactory results. For example
 
-### Jekyll Themes
+```r
+plot2DGraph(c('KX369547', 'HQ234498', 'MH063265'), genbank = TRUE, main = 'Comparison of three sequences')
+```
+returns a ready-to-use graph of the ZIKV genomes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/officialprofile/GNR-DNA/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+<img src="img/example1.png" width="500px" />
 
-### Support or Contact
+For three-dimensional representation one can use plot3DGraph. The function is based on rgl library.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+```r
+plot3DGraph(c('DQ415340','AF509109'), genbank = TRUE, radius = 10)
+```
+
+<img src="img/example3.png" width="500px" />
+
+
+```r
+plot2DGraph(c('DQ415340','AF509109'), genbank = TRUE, 
+            legend.pos = 'bottomright', 
+            colorset = c('lightblue', 'orange'),
+            main = 'Two influenza A type NA genes (H1N1 and H5N1)')
+```
+
+<img src="img/example2.png" width="500px" />
+
+Notice that plotting such graphs can be achieved solely by putting the GenBank accession numbers. plot2DGraph as well as plot3DGraph are intended to be quite versatile though.
+
+In similar fashion one can obtain numerical characteristics by employing dRep function, e.g.
+```r
+dRep(c('KX369547', 'HQ234498'), genbank = TRUE)
+```
+returns the following dataframe
+|         |len  |mi_x  |mi_y   |sqrt   |...
+|---------|-----|------|-------|-------|---
+|KX369547 |10769|84.660|-16.061| 86.170|...
+|HQ234498 |10269|75.171|-17.691| 77.224|...
+
+Naturally, instead of using data from GenBank, one can apply implemented method to one's own sequence or vector of sequences, e.g.
+```r
+seq <- 'ACCCTCGCGCCGCGATTCTACGGACCCTGAAAATG'
+dRep(seq)
+```
