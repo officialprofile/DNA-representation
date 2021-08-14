@@ -1,4 +1,4 @@
-## GNR-DNA
+## DNA Representation Package
 Graphical and Numerical Representation of DNA Sequences
 
 R library for characterizing biological sequences graphically and numerically. If you would like to get the gist of implemented approach please read the following article 
@@ -9,7 +9,7 @@ In order to install and load the package run the following code in the R console
 
 ```r
 library(devtools)
-install_github('officialprofile/GNR-DNA')
+install_github('officialprofile/DNA-representation')
 library(drep)
 ```
 
