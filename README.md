@@ -1,4 +1,4 @@
-## DNA Representation Package
+## drep <img src='img/sticker.svg' align="right" height="150" />
 Graphical and Numerical Representation of DNA Sequences
 
 R library for characterizing biological sequences graphically and numerically. If you would like to get the gist of implemented approach please read the following article 
@@ -9,7 +9,7 @@ In order to install and load the package run the following code in the R console
 
 ```r
 library(devtools)
-install_github('officialprofile/DNA-representation')
+install_github('officialprofile/DynamicRepresentation')
 library(drep)
 ```
 
