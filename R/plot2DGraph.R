@@ -16,7 +16,6 @@ plot2DGraph <- function(seqs, genbank = FALSE, xlab = 'X', ylab = 'Y', main = ''
   }
   graphs_shuffled <- graphs[sample(nrow(graphs)), ] # for the overlaps
   palette <- adjustcolor(colorset[graphs_shuffled$nr], alpha.f = 0.2)
-
   plot(graphs_shuffled$X, graphs_shuffled$Y, col = palette, pch = 20,
        cex = sqrt(graphs_shuffled$freq), xlab = xlab, ylab = ylab, main = main)
   if (show.legend){

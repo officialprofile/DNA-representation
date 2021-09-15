@@ -14,7 +14,7 @@ plot3DGraph <- function(seqs, genbank = FALSE, xlab = 'X', ylab = 'Y', zlab = 'Z
   }
   graphs_shuffled <- graphs[sample(nrow(graphs)), ] # for the overlaps
 
-  plot3d(graphs_shuffled$X, graphs_shuffled$Y, graphs_shuffled$Z,
+  rgl::plot3d(graphs_shuffled$X, graphs_shuffled$Y, graphs_shuffled$Z,
          col = colorset[graphs_shuffled$nr], type = "s",
          radius = radius, xlab = xlab, ylab = ylab, zlab = zlab)
 }

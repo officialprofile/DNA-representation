@@ -1,12 +1,12 @@
 Package: drep
 Type: Package
-Title: Alignment-free characterization of the DNA Sequences
-Version: 0.9.6
-Author: Damian Panas
-Maintainer: Damian Panas <damian@panas.com>
-Description: Characterize biological sequences
-License: 
+Title: Alignment-free characterization of the DNA/RNA Sequences
+Version: 1.0.0
+Author: Official Profile
+Maintainer: Official Profile <official.profile@protonmail.com>
+Description: Characterize biological sequences.
+License: GPL-3
 Encoding: UTF-8
-LazyData: 
+LazyData: true
 Imports: stringr, plyr, ape, rgl, magic
 RoxygenNote: 7.1.1
